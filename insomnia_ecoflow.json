@@ -1,0 +1,255 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-05-18",
+  "__export_source": "insomnia.desktop.app",
+  "resources": [
+    {
+      "_id": "wrk_ecoflow",
+      "_type": "workspace",
+      "name": "EcoFlow ESG",
+      "description": "Collection de endpoints do projeto EcoFlow ESG"
+    },
+    {
+      "_id": "fld_setores",
+      "_type": "request_group",
+      "parentId": "wrk_ecoflow",
+      "name": "Setores"
+    },
+    {
+      "_id": "req_setores_listar",
+      "_type": "request",
+      "parentId": "fld_setores",
+      "name": "Listar todos os setores",
+      "method": "GET",
+      "url": "http://localhost:8080/setores",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_setores_buscar",
+      "_type": "request",
+      "parentId": "fld_setores",
+      "name": "Buscar setor por ID",
+      "method": "GET",
+      "url": "http://localhost:8080/setores/1",
+      "headers": [],
+      "body": {}
+    },
+
+    {
+      "_id": "fld_tipos_residuo",
+      "_type": "request_group",
+      "parentId": "wrk_ecoflow",
+      "name": "Tipos de Resíduo"
+    },
+    {
+      "_id": "req_tipos_listar",
+      "_type": "request",
+      "parentId": "fld_tipos_residuo",
+      "name": "Listar todos os tipos de resíduo",
+      "method": "GET",
+      "url": "http://localhost:8080/tipos-residuo",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_tipos_buscar",
+      "_type": "request",
+      "parentId": "fld_tipos_residuo",
+      "name": "Buscar tipo de resíduo por ID",
+      "method": "GET",
+      "url": "http://localhost:8080/tipos-residuo/1",
+      "headers": [],
+      "body": {}
+    },
+
+    {
+      "_id": "fld_coletores",
+      "_type": "request_group",
+      "parentId": "wrk_ecoflow",
+      "name": "Coletores"
+    },
+    {
+      "_id": "req_coletores_listar",
+      "_type": "request",
+      "parentId": "fld_coletores",
+      "name": "Listar todos os coletores",
+      "method": "GET",
+      "url": "http://localhost:8080/coletores",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_coletores_buscar",
+      "_type": "request",
+      "parentId": "fld_coletores",
+      "name": "Buscar coletor por ID",
+      "method": "GET",
+      "url": "http://localhost:8080/coletores/1",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_coletores_criar",
+      "_type": "request",
+      "parentId": "fld_coletores",
+      "name": "Criar coletor",
+      "method": "POST",
+      "url": "http://localhost:8080/coletores",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"codigo\": \"COL-001\",\n  \"localizacao\": \"Linha de Produção - Setor A\",\n  \"capacidadeLt\": 200.00,\n  \"idSetor\": 1,\n  \"idTipo\": 1\n}"
+      }
+    },
+    {
+      "_id": "req_coletores_atualizar",
+      "_type": "request",
+      "parentId": "fld_coletores",
+      "name": "Atualizar coletor",
+      "method": "PUT",
+      "url": "http://localhost:8080/coletores/1",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"codigo\": \"COL-001-UPDATED\",\n  \"localizacao\": \"Linha de Produção - Setor B\",\n  \"capacidadeLt\": 300.00,\n  \"idSetor\": 1,\n  \"idTipo\": 1\n}"
+      }
+    },
+    {
+      "_id": "req_coletores_deletar",
+      "_type": "request",
+      "parentId": "fld_coletores",
+      "name": "Deletar coletor",
+      "method": "DELETE",
+      "url": "http://localhost:8080/coletores/1",
+      "headers": [],
+      "body": {}
+    },
+
+    {
+      "_id": "fld_registros",
+      "_type": "request_group",
+      "parentId": "wrk_ecoflow",
+      "name": "Registros de Volume"
+    },
+    {
+      "_id": "req_registros_listar",
+      "_type": "request",
+      "parentId": "fld_registros",
+      "name": "Listar registros por coletor",
+      "method": "GET",
+      "url": "http://localhost:8080/coletores/1/registros",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_registros_criar",
+      "_type": "request",
+      "parentId": "fld_registros",
+      "name": "Registrar volume",
+      "method": "POST",
+      "url": "http://localhost:8080/coletores/1/registros",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"volumeLt\": 150.00,\n  \"origemLeitura\": \"MANUAL\"\n}"
+      }
+    },
+
+    {
+      "_id": "fld_ordens",
+      "_type": "request_group",
+      "parentId": "wrk_ecoflow",
+      "name": "Ordens de Coleta"
+    },
+    {
+      "_id": "req_ordens_listar",
+      "_type": "request",
+      "parentId": "fld_ordens",
+      "name": "Listar todas as ordens",
+      "method": "GET",
+      "url": "http://localhost:8080/ordens-coleta",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_ordens_listar_coletor",
+      "_type": "request",
+      "parentId": "fld_ordens",
+      "name": "Listar ordens por coletor",
+      "method": "GET",
+      "url": "http://localhost:8080/ordens-coleta/coletor/1",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_ordens_criar",
+      "_type": "request",
+      "parentId": "fld_ordens",
+      "name": "Criar ordem manual",
+      "method": "POST",
+      "url": "http://localhost:8080/ordens-coleta/coletor/1",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_ordens_concluir",
+      "_type": "request",
+      "parentId": "fld_ordens",
+      "name": "Concluir ordem",
+      "method": "PATCH",
+      "url": "http://localhost:8080/ordens-coleta/1/concluir",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"observacao\": \"Coleta realizada com sucesso. Resíduo encaminhado para reciclagem.\"\n}"
+      }
+    },
+
+    {
+      "_id": "fld_alertas",
+      "_type": "request_group",
+      "parentId": "wrk_ecoflow",
+      "name": "Alertas"
+    },
+    {
+      "_id": "req_alertas_listar",
+      "_type": "request",
+      "parentId": "fld_alertas",
+      "name": "Listar todos os alertas",
+      "method": "GET",
+      "url": "http://localhost:8080/alertas",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_alertas_nao_lidos",
+      "_type": "request",
+      "parentId": "fld_alertas",
+      "name": "Listar alertas não lidos",
+      "method": "GET",
+      "url": "http://localhost:8080/alertas/nao-lidos",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_alertas_marcar_lido",
+      "_type": "request",
+      "parentId": "fld_alertas",
+      "name": "Marcar alerta como lido",
+      "method": "PATCH",
+      "url": "http://localhost:8080/alertas/1/lido",
+      "headers": [],
+      "body": {}
+    }
+  ]
+}
