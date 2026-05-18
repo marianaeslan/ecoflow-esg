@@ -3,9 +3,9 @@ services:
     image: container-registry.oracle.com/database/free:latest
     container_name: ecoflow-oracle
     environment:
-      - ORACLE_PWD=${ORACLE_ADMIN_PWD}
+      - ORACLE_PWD=ecoFlow123#
     ports:
-      - "1522:1521"
+      - "1521:1521"
     volumes:
       - oracle-data:/opt/oracle/oradata
       - ./docker/oracle/init:/opt/oracle/scripts/startup
