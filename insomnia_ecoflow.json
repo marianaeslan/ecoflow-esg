@@ -11,6 +11,36 @@
       "description": "Collection de endpoints do projeto EcoFlow ESG"
     },
     {
+      "_id": "env_base",
+      "_type": "environment",
+      "parentId": "wrk_ecoflow",
+      "name": "Base Environment",
+      "data": {
+        "token": ""
+      }
+    },
+    {
+      "_id": "fld_auth",
+      "_type": "request_group",
+      "parentId": "wrk_ecoflow",
+      "name": "Auth"
+    },
+    {
+      "_id": "req_auth_login",
+      "_type": "request",
+      "parentId": "fld_auth",
+      "name": "Login",
+      "method": "POST",
+      "url": "http://localhost:8080/api/auth/login",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+      }
+    },
+    {
       "_id": "fld_setores",
       "_type": "request_group",
       "parentId": "wrk_ecoflow",
@@ -23,7 +53,9 @@
       "name": "Listar todos os setores",
       "method": "GET",
       "url": "http://localhost:8080/setores",
-      "headers": [],
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
+      ],
       "body": {}
     },
     {
@@ -33,7 +65,9 @@
       "name": "Buscar setor por ID",
       "method": "GET",
       "url": "http://localhost:8080/setores/1",
-      "headers": [],
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
+      ],
       "body": {}
     },
 
@@ -50,7 +84,9 @@
       "name": "Listar todos os tipos de resíduo",
       "method": "GET",
       "url": "http://localhost:8080/tipos-residuo",
-      "headers": [],
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
+      ],
       "body": {}
     },
     {
@@ -60,7 +96,9 @@
       "name": "Buscar tipo de resíduo por ID",
       "method": "GET",
       "url": "http://localhost:8080/tipos-residuo/1",
-      "headers": [],
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
+      ],
       "body": {}
     },
 
@@ -77,7 +115,9 @@
       "name": "Listar todos os coletores",
       "method": "GET",
       "url": "http://localhost:8080/coletores",
-      "headers": [],
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
+      ],
       "body": {}
     },
     {
@@ -87,7 +127,9 @@
       "name": "Buscar coletor por ID",
       "method": "GET",
       "url": "http://localhost:8080/coletores/1",
-      "headers": [],
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
+      ],
       "body": {}
     },
     {
@@ -98,7 +140,8 @@
       "method": "POST",
       "url": "http://localhost:8080/coletores",
       "headers": [
-        { "name": "Content-Type", "value": "application/json" }
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
       ],
       "body": {
         "mimeType": "application/json",
@@ -113,7 +156,8 @@
       "method": "PUT",
       "url": "http://localhost:8080/coletores/1",
       "headers": [
-        { "name": "Content-Type", "value": "application/json" }
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
       ],
       "body": {
         "mimeType": "application/json",
@@ -127,7 +171,9 @@
       "name": "Deletar coletor",
       "method": "DELETE",
       "url": "http://localhost:8080/coletores/1",
-      "headers": [],
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
+      ],
       "body": {}
     },
 
@@ -144,7 +190,9 @@
       "name": "Listar registros por coletor",
       "method": "GET",
       "url": "http://localhost:8080/coletores/1/registros",
-      "headers": [],
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
+      ],
       "body": {}
     },
     {
@@ -155,7 +203,8 @@
       "method": "POST",
       "url": "http://localhost:8080/coletores/1/registros",
       "headers": [
-        { "name": "Content-Type", "value": "application/json" }
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
       ],
       "body": {
         "mimeType": "application/json",
@@ -176,7 +225,9 @@
       "name": "Listar todas as ordens",
       "method": "GET",
       "url": "http://localhost:8080/ordens-coleta",
-      "headers": [],
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
+      ],
       "body": {}
     },
     {
@@ -186,7 +237,9 @@
       "name": "Listar ordens por coletor",
       "method": "GET",
       "url": "http://localhost:8080/ordens-coleta/coletor/1",
-      "headers": [],
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
+      ],
       "body": {}
     },
     {
@@ -196,7 +249,9 @@
       "name": "Criar ordem manual",
       "method": "POST",
       "url": "http://localhost:8080/ordens-coleta/coletor/1",
-      "headers": [],
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
+      ],
       "body": {}
     },
     {
@@ -207,7 +262,8 @@
       "method": "PATCH",
       "url": "http://localhost:8080/ordens-coleta/1/concluir",
       "headers": [
-        { "name": "Content-Type", "value": "application/json" }
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
       ],
       "body": {
         "mimeType": "application/json",
@@ -228,7 +284,9 @@
       "name": "Listar todos os alertas",
       "method": "GET",
       "url": "http://localhost:8080/alertas",
-      "headers": [],
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
+      ],
       "body": {}
     },
     {
@@ -238,7 +296,9 @@
       "name": "Listar alertas não lidos",
       "method": "GET",
       "url": "http://localhost:8080/alertas/nao-lidos",
-      "headers": [],
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
+      ],
       "body": {}
     },
     {
@@ -248,7 +308,9 @@
       "name": "Marcar alerta como lido",
       "method": "PATCH",
       "url": "http://localhost:8080/alertas/1/lido",
-      "headers": [],
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" }
+      ],
       "body": {}
     }
   ]
