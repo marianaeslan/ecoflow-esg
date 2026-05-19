@@ -41,6 +41,21 @@
       }
     },
     {
+      "_id": "req_auth_register",
+      "_type": "request",
+      "parentId": "fld_auth",
+      "name": "Register",
+      "method": "POST",
+      "url": "http://localhost:8080/api/auth/register",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"user01\",\n  \"password\": \"senha123\"\n}"
+      }
+    },
+    {
       "_id": "fld_setores",
       "_type": "request_group",
       "parentId": "wrk_ecoflow",

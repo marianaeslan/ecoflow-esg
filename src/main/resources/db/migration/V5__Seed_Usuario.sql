@@ -1,0 +1,6 @@
+INSERT INTO USUARIO (USERNAME, PASSWORD_HASH, ROLE)
+VALUES (
+    'admin',
+    '$2y$10$Qa.PX7bG0h8CoHw9lGpZc..FqnFYkKDuULCUMl7F7ui9i55JDku/y',
+    'ADMIN'
+);
