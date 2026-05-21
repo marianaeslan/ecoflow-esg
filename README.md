@@ -1,6 +1,6 @@
-# EcoFlow ESG — Banco de Dados Oracle (Docker)
+# EcoFlow ESG 
 
-Uma documentação enxuta e prática para subir e acessar o banco Oracle usado pelo projeto **EcoFlow ESG** em ambiente local via Docker Compose.
+Documentação prática para subir e acessar o banco Oracle usado pelo projeto **EcoFlow ESG** em ambiente local via Docker Compose.
 
 ---
 
@@ -28,20 +28,6 @@ API REST para gerenciamento de coletores de residuos, ordens de coleta e alertas
 - **Maven** (ou `./mvnw`)
 - **Docker** e **Docker Compose**
 - Cliente SQL (opcional): **SQL Developer** ou **DBeaver**
-
----
-
-## Variaveis de ambiente
-
-- `APP_DB_PWD`: senha do usuario Oracle `ecoflow`
-- `API_SECURITY_TOKEN_SECRET` (opcional): chave do JWT. Se nao for definida, usa o fallback `my-secret`.
-
-Exemplo no shell:
-
-```bash
-export APP_DB_PWD="ecoflow123"
-export API_SECURITY_TOKEN_SECRET="minha-chave-secreta"
-```
 
 ---
 
